@@ -1,0 +1,22 @@
+<template>
+  <div id="app">
+    <GameBoard />
+  </div>
+</template>
+
+<script>
+import GameBoard from './components/GameBoard.vue';
+
+export default {
+  components: {
+    GameBoard,
+  },
+};
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+</style>
