@@ -8,7 +8,16 @@
         :matched="tile.matched"
         :position="tile.position"
         @tile-clicked="handleTileClick(tile)"
-        :class="{ highlighted: firstTile && firstTile.id === tile.id }"
+        :class="{
+          highlighted:
+            firstTile &&
+            (firstTile.id === tile.id || secondTile?.id === tile.id) &&
+            firstTile.symbol === tile.symbol,
+          shake:
+            secondTile &&
+            secondTile.id === tile.id &&
+            firstTile.symbol !== secondTile.symbol,
+        }"
       />
     </div>
   </div>
@@ -101,11 +110,17 @@ export default {
       if (this.firstTile.symbol === this.secondTile.symbol) {
         this.firstTile.matched = true;
         this.secondTile.matched = true;
+
+        setTimeout(() => {
+          this.firstTile = null;
+          this.secondTile = null;
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          this.firstTile = null;
+          this.secondTile = null;
+        }, 1000);
       }
-      setTimeout(() => {
-        this.firstTile = null;
-        this.secondTile = null;
-      }, 1000);
     },
   },
 };
@@ -129,5 +144,27 @@ export default {
   box-shadow: 0 0 15px rgba(255, 165, 0, 1), 0 0 5px black; /* Orange and black shadow */
   border: 3px solid yellow; /* Yellow border around the tile */
   transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
 }
 </style>
