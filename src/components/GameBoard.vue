@@ -1,13 +1,15 @@
 <template>
-  <div id="game-board">
-    <MahjongTile
-      v-for="tile in tiles"
-      :key="tile.id"
-      :symbol="tile.symbol"
-      :matched="tile.matched"
-      :position="tile.position"
-      @tile-clicked="handleTileClick(tile)"
-    />
+  <div id="game-container">
+    <div id="game-board">
+      <MahjongTile
+        v-for="tile in tiles"
+        :key="tile.id"
+        :symbol="tile.symbol"
+        :matched="tile.matched"
+        :position="tile.position"
+        @tile-clicked="handleTileClick(tile)"
+      />
+    </div>
   </div>
 </template>
 
@@ -23,10 +25,34 @@ export default {
       tiles: [],
       tileTypes: 36,
       layers: [
-        { rows: 4, cols: 12, offsetX: 0, offsetY: 0, startZ: 0 },
-        { rows: 3, cols: 10, offsetX: 1, offsetY: 1, startZ: 1 },
-        { rows: 2, cols: 8, offsetX: 2, offsetY: 2, startZ: 2 },
-        { rows: 1, cols: 6, offsetX: 3, offsetY: 3, startZ: 3 },
+        // Layer 1
+        { rows: 1, cols: 12, offsetY: 0, startZ: 0 },
+        { rows: 1, cols: 8, offsetY: 80, startZ: 0 },
+        { rows: 1, cols: 10, offsetY: 160, startZ: 0 },
+        { rows: 1, cols: 15, offsetY: 240, startZ: 0 },
+        { rows: 1, cols: 12, offsetY: 320, startZ: 0 },
+        { rows: 1, cols: 10, offsetY: 400, startZ: 0 },
+        { rows: 1, cols: 8, offsetY: 480, startZ: 0 },
+        { rows: 1, cols: 12, offsetY: 560, startZ: 0 },
+        // Layer 2 (on top of 2nd row of Layer 1)
+        { rows: 1, cols: 6, offsetY: 60, startZ: 1 },
+        { rows: 1, cols: 6, offsetY: 140, startZ: 1 },
+        { rows: 1, cols: 6, offsetY: 220, startZ: 1 },
+        { rows: 1, cols: 6, offsetY: 300, startZ: 1 },
+        { rows: 1, cols: 6, offsetY: 380, startZ: 1 },
+        { rows: 1, cols: 6, offsetY: 460, startZ: 1 },
+        // Layer 3
+        { rows: 1, cols: 4, offsetY: 100, startZ: 2 },
+        { rows: 1, cols: 4, offsetY: 180, startZ: 2 },
+        { rows: 1, cols: 4, offsetY: 260, startZ: 2 },
+        { rows: 1, cols: 4, offsetY: 340, startZ: 2 },
+
+        // Layer 4
+        { rows: 1, cols: 2, offsetY: 200, startZ: 3 },
+        { rows: 1, cols: 2, offsetY: 280, startZ: 3 },
+
+        // Layer 5
+        { rows: 1, cols: 1, offsetY: 220, startZ: 4 },
       ],
       firstTile: null,
       secondTile: null,
@@ -38,33 +64,29 @@ export default {
   methods: {
     initializeTiles() {
       const tileWidth = 60;
-      const tileHeight = 80;
-      const boardWidth = 800;
+      const boardWidth = 720;
       let tileIdCounter = 0;
 
       this.layers.forEach((layer) => {
-        const { rows, cols, offsetX, offsetY, startZ } = layer;
+        const { rows, cols, offsetY, startZ } = layer;
         for (let row = 0; row < rows; row++) {
           for (let col = 0; col < cols; col++) {
-            const x =
-              (offsetX + col) * tileWidth + (boardWidth - cols * tileWidth) / 2;
-            const y = (offsetY + row) * tileHeight;
+            const x = col * tileWidth + (boardWidth - cols * tileWidth) / 2;
+            const y = offsetY;
             const z = startZ + row;
-
             const symbolIndex = Math.floor(Math.random() * this.tileTypes) + 1;
 
-            for (let i = 0; i < 4; i++) {
-              this.tiles.push({
-                id: `tile-${tileIdCounter++}`,
-                symbol: symbolIndex,
-                matched: false,
-                position: { x, y, z },
-              });
-            }
+            this.tiles.push({
+              id: `tile-${tileIdCounter++}`,
+              symbol: symbolIndex,
+              matched: false,
+              position: { x, y, z },
+            });
           }
         }
       });
     },
+
     handleTileClick(tile) {
       if (tile.matched) return;
       if (!this.firstTile) {
@@ -89,11 +111,16 @@ export default {
 </script>
 
 <style scoped>
+#game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 #game-board {
   position: relative;
-  width: 100%;
-  height: 600px;
-  background-color: #142800;
-  overflow: hidden;
+  width: 720px;
+  height: 800px;
 }
 </style>
