@@ -8,6 +8,7 @@
         :matched="tile.matched"
         :position="tile.position"
         @tile-clicked="handleTileClick(tile)"
+        :class="{ highlighted: firstTile && firstTile.id === tile.id }"
       />
     </div>
   </div>
@@ -86,9 +87,9 @@ export default {
         }
       });
     },
-
     handleTileClick(tile) {
       if (tile.matched) return;
+
       if (!this.firstTile) {
         this.firstTile = tile;
       } else if (!this.secondTile) {
@@ -122,5 +123,11 @@ export default {
   position: relative;
   width: 720px;
   height: 800px;
+}
+
+.highlighted {
+  box-shadow: 0 0 15px rgba(255, 165, 0, 1), 0 0 5px black; /* Orange and black shadow */
+  border: 3px solid yellow; /* Yellow border around the tile */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 </style>
