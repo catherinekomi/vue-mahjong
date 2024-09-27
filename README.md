@@ -15,6 +15,7 @@ TO-DO:
 8. Add Button "Hint"
 9. Add Pause
 10. Add How many Matches you can still do on your board
+11. Maybe add a welcome page with play button on it
 
 <img width="863" alt="Screen Shot 2024-09-26 at 12 32 51 PM" src="https://github.com/user-attachments/assets/fc3c4e67-97b9-4677-aa01-8b7cb13b04c4">
 
