@@ -97,7 +97,8 @@ export default {
       });
     },
     handleTileClick(tile) {
-      if (tile.matched) return;
+      if (tile.matched || (this.firstTile && this.firstTile.id === tile.id))
+        return;
 
       if (!this.firstTile) {
         this.firstTile = tile;
