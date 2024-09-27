@@ -3,7 +3,8 @@
 TO-DO:
 1. Work on this type of layer ✅
 ![Screen Shot 2024-09-27 at 11 47 23 AM](https://github.com/user-attachments/assets/0050bc42-64e4-4b8d-b9e9-56b50b18f7b5)
-![Screen Shot 2024-09-27 at 11 58 39 AM](https://github.com/user-attachments/assets/8887bb16-e35b-4dca-b942-48232c15cd42)
+![Screen Shot 2024-09-27 at 12 08 44 PM](https://github.com/user-attachments/assets/3ad0dcd9-5fe5-4fde-97f7-2b864d414f86)
+
 
 2. Add Shadow to the bottom layer
 3. Add rules which tiles can be illuminated
