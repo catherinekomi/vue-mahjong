@@ -7,15 +7,17 @@ TO-DO:
 
 
 2. Add Shadow to the bottom layer
-3. Add rules which tiles can be illuminated
-4. add CSS when you click on the tile
-5. Add CSS when tile is matched
-6. Add CSS when the tile is not matching and maybe sound?
-7. Add Timer
-8. Add Button "Hint"
-9. Add Pause
-10. Add How many Matches you can still do on your board
-11. Maybe add a welcome page with play button on it
+3. Add the rules that i cant click on the same tile twice and remove it
+4. Add rules which tiles can be illuminated
+5. add CSS when you click on the tile ✅
+   ![Screen Shot 2024-09-27 at 12 23 40 PM](https://github.com/user-attachments/assets/d10cddb4-fa55-48ac-baa1-bfb30aadacff)
+7. Add CSS when tile is matched ✅ also yellow, maybe will add some animation later
+8. Add CSS when the tile is not matching and maybe sound? ✅
+9. Add Timer
+10. Add Button "Hint"
+11. Add Pause
+12. Add How many Matches you can still do on your board
+13. Maybe add a welcome page with play button on it
 
 <img width="863" alt="Screen Shot 2024-09-26 at 12 32 51 PM" src="https://github.com/user-attachments/assets/fc3c4e67-97b9-4677-aa01-8b7cb13b04c4">
 
