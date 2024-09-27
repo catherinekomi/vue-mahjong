@@ -7,7 +7,7 @@ TO-DO:
 
 
 2. Add Shadow to the bottom layer
-3. Add the rules that i cant click on the same tile twice and remove it
+3. Add the rules that i cant click on the same tile twice and remove it ✅ 
 4. Add rules which tiles can be illuminated
 5. add CSS when you click on the tile ✅
    ![Screen Shot 2024-09-27 at 12 23 40 PM](https://github.com/user-attachments/assets/d10cddb4-fa55-48ac-baa1-bfb30aadacff)
